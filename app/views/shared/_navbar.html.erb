@@ -10,7 +10,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
+      <% unless user_signed_in? %>
         <li class="nav-item font-weight-bold">
           <%= link_to "Search cars", "#", class: "nav-link" %>
         </li>
