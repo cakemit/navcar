@@ -1,0 +1,13 @@
+<h1>car<h1>
+<% @cars.each do |car| %>
+  <ul class="group-list">
+    <li class='list-group-item list-group-item-action'>
+      <%= link_to car.brand, car_path(car)%> |
+      <%= link_to "Remove",
+        car_path(car),
+        method: :delete,
+        data: { confirm: "Are you sure?", },
+        class: "btn btn-warning" %>
+    </li>
+  </ul>
+<% end %>
