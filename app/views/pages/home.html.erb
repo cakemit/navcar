@@ -1,2 +1,36 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%# ini navbar %>
+<%# end navbar %>
+
+<%# ini banner %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('/assets/home.jpg');">
+  <div class="container">
+    <h1>Go <strong>anywhere</strong> you want</h1>
+    <p>Chega de mesmice. Coloque um pouco de aventura na sua vida.</p>
+    <a class="btn btn-secondary" href="#">Explore navcar</a>
+  </div>
+</div>
+<%# end banner %>
+
+<div class="container mt-4">
+  <%# ini search-locations %>
+  <div>
+    <a href="#" class="d-flex align-items-center">
+      <span> 
+        <div style="background-image: url('/assets/cabo-frio.jpg'); background-size: cover;"></div>
+      </span>
+      <span class="d-flex flex-wrap">
+        <span>Cabo Frio</span>
+        <span>2.5 hour drive</span>
+      </span>
+    </a>
+  </div>
+<%# end search-locations %>
+
+<%# ini  %>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  Breakfast
+</div>
+
+<%# ini footer %>
+<%# end footer %>
+</div>
