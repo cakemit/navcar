@@ -4,79 +4,96 @@
 <%# ini banner %>
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('/assets/home.jpg');">
   <div class="container">
-    <h1>Go <strong>anywhere</strong> you want</h1>
-    <p>Chega de mesmice. Coloque um pouco de aventura na sua vida.</p>
+    <h1>Drive anywhere you want</h1>
+    <p>Break the routine with a little adventure in your life.</p>
     <a class="btn btn-secondary" href="#">Explore navcar</a>
   </div>
 </div>
 <%# end banner %>
 
-<div class="container mt-4">
-  <%# ini search-locations %>
-  <div id="search-locations">
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2>Cabo Frio</h2>
-        <p>2.5 horas</p>
-      </div>
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2>Cabo Frio</h2>
-        <p>2.5 horas</p>
-      </div>
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2>Cabo Frio</h2>
-        <p>2.5 horas</p>
-      </div>
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2>Cabo Frio</h2>
-        <p>2.5 horas</p>
-      </div>
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2>Cabo Frio</h2>
-        <p>2.5 horas</p>
-      </div>
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2>Cabo Frio</h2>
-        <p>2.5 horas</p>
-      </div>
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2>Cabo Frio</h2>
-        <p>2.5 horas</p>
-      </div>
+<div class="container mb-5">
 
+  <h2 class="py-3 mt-2">Drive anywhere...</h2>
+  <%# ini search-locations %>
+  <div class="cards">
+    <div class="card-location">
+      <img src="/assets/cabo-frio.jpg" />
+      <div class="card-location-info">
+        <h2>Cabo Frio</h2>
+        <p>2.5 hour drive</p>
+      </div>
+    </div>
+    <div class="card-location">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-location-info">
+        <h2>Rio de Janeiro</h2>
+        <p>30 minute drive</p>
+      </div>
+    </div>
+    <div class="card-location">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-location-info">
+        <h2>Resende</h2>
+        <p>2.5 hour drive</p>
+      </div>
+    </div>
+    <div class="card-location">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-location-info">
+        <h2>Nova Friburgo</h2>
+        <p>2.5 hour drive</p>
+      </div>
+    </div>
+    <div class="card-location">
+      <img src="/assets/cabo-frio.jpg" />
+      <div class="card-location-info">
+        <h2>Búzios</h2>
+        <p>2.5 hour drive</p>
+      </div>
+    </div>
+    <div class="card-location">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-location-info">
+        <h2>Campos do Jordão</h2>
+        <p>4.5 hour drive</p>
+      </div>
+    </div>
+    <div class="card-location">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-location-info">
+        <h2>Petrópolis</h2>
+        <p>1 hour drive</p>
+      </div>
+    </div>
+    <div class="card-location">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-location-info">
+        <h2>Ubatuba</h2>
+        <p>5.5 hour drive</p>
+      </div>
     </div>
   </div>
-<%# end search-locations %>
+  <%# end search-locations %>
+  <h2 class="py-3 mt-3">...and do it in style</h2>
+  <%# ini card-category %>
+  <div class="cards">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/luxury.jpg')">
+      Luxury
+    </div>
 
-<%# ini card-category %>
-<div class="d-flex justify-content-between">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Vintage
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/vintage.jpg')">
+      Vintage
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('/assets/sport.jpg')">
+      Sport
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('/assets/off-road.jpg')">
+      Off-road
+    </div>
   </div>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Esporte
-  </div>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Luxo
-  </div>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Off-road
-  </div>
-</div>
-<%# end card-category %>
+  <%# end card-category %>
 </div>
 
 <%# ini footer %>
