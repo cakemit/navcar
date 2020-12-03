@@ -6,9 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts "Deleting car database"
+puts "Deleting user, car and rental databases"
 
+User.destroy_all
 Car.destroy_all
+Rental.destroy_all
 
 puts "Database deleted"
 
@@ -35,8 +37,17 @@ puts "Seeding database"
         daily_rate: rand(400..2000),
         city: Faker::Address.full_address
       )
-  puts "Created car #{car.brand} - #{car.model} - #{car.year} - #{car.km}km"
-end
-end
+    rental = Rental.create!(
+        user_id: user.id,
+        car_id: car.id,
+        start_date: Date.today,
+        finish_date: Faker::Date.between(from: Date.today, to: '2100-01-01')
+      )
+    puts "Created car #{car.brand} - #{car.model} - #{car.year} - #{car.km}km"
+    puts "Created rent #{rental.start_date} - #{rental.finish_date}"
+  end
 
+end
+puts "Created #{User.count} users"
 puts "Created #{Car.count} cars"
+puts "Created #{Rental.count} rentals"
