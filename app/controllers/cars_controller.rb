@@ -2,7 +2,7 @@ class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cars = Car.all
+    @cars = policy_scope(Car).order(created_at: :desc)
   end
 
   def new
@@ -15,11 +15,23 @@ class CarsController < ApplicationController
     @car = Car.new(car_params)
     @car.user = current_user
     authorize @car
-
-    if @car.save!
+    if @car.save
       redirect_to car_path(@car)
     else
       render :new
+    end
+  end
+
+  def edit
+    authorize @car
+  end
+
+  def update
+    authorize @car
+    if Car.update(car_params)
+      redirect_to car_path(@car)
+    else
+      render :edit
     end
   end
 
