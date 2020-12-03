@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :cars do
-    resources :rentals, only: [:new, :create, :index]
+    resources :rentals
     resources :reviews, only: [:new, :create, :index]
   end
 end
