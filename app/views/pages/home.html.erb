@@ -2,7 +2,7 @@
 <%# end navbar %>
 
 <%# ini banner %>
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('/assets/home.jpg');">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_url "banner.jpeg"%>);">
   <div class="container">
     <h1>Drive anywhere you want</h1>
     <p>Break the routine with a little adventure in your life.</p>
@@ -17,56 +17,56 @@
   <%# ini search-locations %>
   <div class="cards">
     <div class="card-location">
-      <img src="/assets/cabo-frio.jpg" />
+      <%= image_tag "cabo-frio.jpeg" %>
       <div class="card-location-info">
         <h2>Cabo Frio</h2>
         <p>2.5 hour drive</p>
       </div>
     </div>
     <div class="card-location">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" %>
       <div class="card-location-info">
         <h2>Rio de Janeiro</h2>
         <p>30 minute drive</p>
       </div>
     </div>
     <div class="card-location">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" %>
       <div class="card-location-info">
         <h2>Resende</h2>
         <p>2.5 hour drive</p>
       </div>
     </div>
     <div class="card-location">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" %>
       <div class="card-location-info">
         <h2>Nova Friburgo</h2>
         <p>2.5 hour drive</p>
       </div>
     </div>
     <div class="card-location">
-      <img src="/assets/cabo-frio.jpg" />
+      <%= image_tag "cabo-frio.jpeg" %>
       <div class="card-location-info">
         <h2>Búzios</h2>
         <p>2.5 hour drive</p>
       </div>
     </div>
     <div class="card-location">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" %>
       <div class="card-location-info">
         <h2>Campos do Jordão</h2>
         <p>4.5 hour drive</p>
       </div>
     </div>
     <div class="card-location">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" %>
       <div class="card-location-info">
         <h2>Petrópolis</h2>
         <p>1 hour drive</p>
       </div>
     </div>
     <div class="card-location">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" %>
       <div class="card-location-info">
         <h2>Ubatuba</h2>
         <p>5.5 hour drive</p>
@@ -77,19 +77,19 @@
   <h2 class="py-3 mt-3">...and do it in style</h2>
   <%# ini card-category %>
   <div class="cards">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/luxury.jpg')">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_url "luxury.jpeg"%>)">
       Luxury
     </div>
 
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/vintage.jpg')">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_url "vintage.jpeg"%>)">
       Vintage
     </div>
 
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('/assets/sport.jpg')">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= image_url "sport.jpeg"%>)">
       Sport
     </div>
 
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('/assets/off-road.jpg')">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= image_url "off-road.jpeg"%>)">
       Off-road
     </div>
   </div>
