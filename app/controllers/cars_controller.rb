@@ -1,13 +1,30 @@
 class CarsController < ApplicationController
-
-# before_action :set_car
+  before_action :set_car, only: [:show, :edit, :update, :destroy]
 
   def index
     @cars = Car.all
   end
 
   def new
+    @car = Car.new
+    @user = current_user
+    authorize @car
+  end
+
+  def create
     @car = Car.new(car_params)
+    @car.user = current_user
+    authorize @car
+
+    if @car.save!
+      redirect_to car_path(@car)
+    else
+      render :new
+    end
+  end
+
+  def show
+    authorize @car
   end
 
   private
