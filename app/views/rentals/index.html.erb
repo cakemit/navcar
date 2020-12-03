@@ -1,0 +1,9 @@
+<% @rentals.each do |rental| %>
+<p> Rental ID <%= rental.id %></p>
+<p> Car ID <%= rental.car.id %></p>
+<p> Car brand <%= rental.car.brand %></p>
+<p> First name <%= rental.user.first_name %></p>
+<p> Last Name <%= rental.user.last_name %> </p>
+<p> Date Start <%= rental.start_date %></p>
+<p> Date Finish <%= rental.finish_date %></p>
+<% end %>
