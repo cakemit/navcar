@@ -36,6 +36,7 @@ class RentalsController < ApplicationController
   end
 
   def update
+    authorize @rental
     if @rental.update(rental_params)
       redirect_to car_rental_path(@car, @rental)
     else
@@ -44,8 +45,10 @@ class RentalsController < ApplicationController
   end
 
   def destroy
+    authorize @rental
   end
 
+  # ----------------------------------------------------------------------------
   private
 
   def rental_params
