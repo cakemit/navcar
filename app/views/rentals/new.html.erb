@@ -1,6 +1,15 @@
-<p> Car ID <%= @car.id %></p>
-<p> Car brand <%= @car.brand %></p>
-<p> Car daily rate <%= @car.daily_rate %></p> 
 <div class="container">
-<%= render '/shared/form_rental' %>
-</div>
+  <div class="row">
+    <div class="col-6">
+      <%= render 'shared/car_details' %>
+    </div>
+    <div class="col-6">
+      <p> Car ID <%= @car.id %></p>
+      <p> Car brand <%= @car.brand %></p>
+      <p> Car daily rate <%= @car.daily_rate %></p> 
+      <div class="container">
+        <%= render '/shared/form_rental' %>
+      </div>
+    </div>
+  </div>
+</div>  

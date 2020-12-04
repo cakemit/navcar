@@ -86,43 +86,43 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-
-.card-show-car {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+.car-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 24px;
 }
 
-.card-show-car > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .car-details-grid  {
+    grid-template-columns: 1fr;
+  }
 }
 
-.card-show-car h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .car-details-grid  {
+    grid-template-columns: 1fr;
+  }
 }
 
-.card-show-car p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .car-details-grid  {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-
-.card-show-car .card-show-car-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .car-details-grid  {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-.card-show-car-infos .card-show-car-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .car-details-grid  {
+    grid-template-columns: 1fr 1fr;
+  }
 }
