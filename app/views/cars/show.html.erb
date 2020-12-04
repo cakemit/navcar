@@ -1,2 +1,17 @@
-<%= render partial: "shared/card_car", locals: {car: @car} %>
 
+<div class=".card-show-car">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class=".card-show-car-infos">
+    <div>
+      <h2><%= @car.brand %></h2>
+      <p>Model: <%= @car.model %></p>
+      <p>Category: <%= @car.category %></p>
+      <p>Km: <%= @car.km %> Km</p>
+      <p>City: <%= @car.city %></p>
+    </div>
+    <h2 class=".card-show-car-pricing">R$ <%= @car.daily_rate %> </h2>
+
+    <%= link_to "Book this car", new_car_rental_path(@car), class: "btn btn-gradient"%>
+
+  </div>
+</div>
