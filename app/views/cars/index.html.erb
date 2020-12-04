@@ -1,39 +1,44 @@
-<div class="container">
+<div class="container mt-5">
+  <div class="mb-5">
+    <% if policy(Car).create? %>
+      <%= link_to "Add new car", new_car_path,
+                  class: "btn btn-gradient btn-lg"%>
+    <% end %>
+  </div>
 
-  <% if policy(Car).create? %>
-    <%= link_to "Add new car", new_car_path,
-                class: "btn btn-gradient"%>
-  <% end %>
+  <div class="cards">
+    <%= @cars.each do |car| %>
+      <div class="card">
+        <%= image_tag 'logo', { class: "card-img-top" } %>
+        <div class="card-body">
+          <h3 class="card-title"> <%= car.brand  %> <%= car.model  %> </h3>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class=list-group-item> Car year: <%= car.year %> </li>
+          <li class=list-group-item> Kms: <%= car.km %> </li>
+          <li class=list-group-item> <%= car.city  %> </li>
+          <li class=list-group-item> Daily rate: R$ <%= car.daily_rate  %> </li>
+        </ul>
+        <div class="card-body">
+          <% if policy(car).show? %>
+            <%= link_to "Book", car_path(car),
+              class: "btn btn-flat" %>
+          <% end %>
 
-  <% @cars.each do |car| %>
-    <ul class="group-list">
+          <% if policy(car).edit? %>
+            <%= link_to "Update", edit_car_path(car),
+              class: "btn btn-secondary" %>
+          <% end %>
 
-      <li class='list-group-item list-group-item-action'>
-
-        <span> <%= car.brand  %> </span>
-        <span> <%= car.model  %> </span>
-        <span> <%= car.year %> </span> -
-        <span> <%= car.city  %> </span>
-
-        <% if policy(car).show? %>
-          <%= link_to "Book", car_path(car),
-            class: "btn btn-flat" %>
-        <% end %>
-
-        <% if policy(car).edit? %>
-          <%= link_to "Update", edit_car_path(car),
-            class: "btn btn-secondary" %>
-        <% end %>
-
-        <% if policy(car).destroy? %>
-          <%= link_to "Remove", car_path(car),
-            method: :delete,
-            data: { confirm: "Are you sure?", },
-            class: "btn btn-secondary" %>
-        <% end %>
-
-      </li>
-    </ul>
-  <% end %>
+          <% if policy(car).destroy? %>
+            <%= link_to "Remove", car_path(car),
+              method: :delete,
+              data: { confirm: "Are you sure?", },
+              class: "btn btn-secondary" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
 </div>
