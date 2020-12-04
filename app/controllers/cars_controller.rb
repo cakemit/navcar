@@ -3,6 +3,7 @@ class CarsController < ApplicationController
 
   def index
     @cars = policy_scope(Car).order(created_at: :desc)
+    # @cars = Car.all
   end
 
   def new
@@ -37,6 +38,12 @@ class CarsController < ApplicationController
 
   def show
     authorize @car
+  end
+
+  def destroy
+    authorize @car
+    @car.destroy
+    redirect_to cars_path
   end
 
   private
