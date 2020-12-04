@@ -1,14 +1,31 @@
 .navbar-lewagon {
   justify-content: space-between;
+  align-items: center;
   background: $light-gray;
   padding: 0 16px;
-  height: 64px;
-}
+  height: 40px;
+  margin: 0;
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 120px;
+  .navbar-collapse {
+    flex-grow: 0;
+  }
+  .navbar-brand {
+    // border: 1px solid red;
+    padding: 0;
+    margin: 0;
+    img {
+      width: 120px;
+      height: 50px;
+      object-fit: cover;
+      object-position: 80% 20%;
+      padding: 0;
+      margin: 0;
+      // border: 1px solid red;
+    }
+  }
+  .nav-item {
+    margin: 15px 0 0 0;
+    padding: 0;
+    // border: 1px solid red;
+  }
 }
