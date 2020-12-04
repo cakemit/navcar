@@ -16,6 +16,96 @@ puts "Database deleted"
 
 puts "Seeding database"
 
+user = User.create!(
+    first_name: "user",
+    last_name: Faker::Name.last_name,
+    phone: Faker::PhoneNumber.cell_phone,
+    address: Faker::Address.full_address,
+    email: "user@teste.com",
+    password: '123456',
+    password_confirmation: '123456'
+    )
+5.times do
+  car = Car.create!(
+      user_id: user.id ,
+      brand: Faker::Vehicle.manufacture,
+      model: Faker::Vehicle.model,
+      year: Faker::Vehicle.year,
+      km: Faker::Vehicle.kilometrage,
+      daily_rate: rand(400..2000),
+      city: Faker::Address.full_address,
+      category: ["Vintage", "Luxury", "Off-road", "Sport"].sample
+    )
+  rental = Rental.create!(
+      user_id: user.id,
+      car_id: car.id,
+      start_date: Date.today,
+      finish_date: Faker::Date.between(from: Date.today, to: '2100-01-01')
+    )
+end
+
+
+User.create!(
+    first_name: "owner",
+    last_name: Faker::Name.last_name,
+    phone: Faker::PhoneNumber.cell_phone,
+    address: Faker::Address.full_address,
+    email: "owner@teste.com",
+    password: '123456',
+    password_confirmation: '123456'
+    )
+
+5.times do
+  car = Car.create!(
+      user_id: user.id ,
+      brand: Faker::Vehicle.manufacture,
+      model: Faker::Vehicle.model,
+      year: Faker::Vehicle.year,
+      km: Faker::Vehicle.kilometrage,
+      daily_rate: rand(400..2000),
+      city: Faker::Address.full_address,
+      category: ["Vintage", "Luxury", "Off-road", "Sport"].sample
+    )
+  rental = Rental.create!(
+      user_id: user.id,
+      car_id: car.id,
+      start_date: Date.today,
+      finish_date: Faker::Date.between(from: Date.today, to: '2100-01-01')
+    )
+
+end
+
+User.create!(
+    first_name: "admin",
+    last_name: Faker::Name.last_name,
+    phone: Faker::PhoneNumber.cell_phone,
+    address: Faker::Address.full_address,
+    email: "admin@teste.com",
+    password: '123456',
+    password_confirmation: '123456'
+    )
+
+5.times do
+  car = Car.create!(
+      user_id: user.id ,
+      brand: Faker::Vehicle.manufacture,
+      model: Faker::Vehicle.model,
+      year: Faker::Vehicle.year,
+      km: Faker::Vehicle.kilometrage,
+      daily_rate: rand(400..2000),
+      city: Faker::Address.full_address,
+      category: ["Vintage", "Luxury", "Off-road", "Sport"].sample
+    )
+  rental = Rental.create!(
+      user_id: user.id,
+      car_id: car.id,
+      start_date: Date.today,
+      finish_date: Faker::Date.between(from: Date.today, to: '2100-01-01')
+    )
+
+end
+
+
 5.times do
   user = User.create!(
     first_name: Faker::Name.first_name,
