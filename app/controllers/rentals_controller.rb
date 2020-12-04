@@ -9,18 +9,21 @@ class RentalsController < ApplicationController
   def show
     time = @rental.finish_date - @rental.start_date
     @price = time * @rental.car.daily_rate
+    authorize @rental
   end
 
   def new
     @rental = Rental.new
     @rental.car = @car
     @rental.user = current_user
+    authorize @rental
   end
 
   def create
     @rental = Rental.new(rental_params)
     @rental.car = @car
     @rental.user = current_user
+    authorize @rental
 
     if @rental.save!
       redirect_to car_rental_path(@car, @rental)
