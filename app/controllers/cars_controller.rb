@@ -3,6 +3,7 @@ class CarsController < ApplicationController
 
   def index
     @cars = policy_scope(Car).order(created_at: :desc)
+    @user = current_user
     # @cars = Car.all
   end
 
