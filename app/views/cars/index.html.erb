@@ -7,17 +7,17 @@
   </div>
 
   <div class="cards">
-    <%= @cars.each do |car| %>
+    <% @cars.each do |car| %>
       <div class="card">
         <%= link_to car_path(car) do %>
           <%= image_tag 'logo', { class: "card-img-top" } %>
         <% end %>
         <div class="card-body">
-          <h3 class="card-title"> <%= car.brand  %> <%= car.model  %> </h3>
+          <h3 class="card-title"> <%= car.brand  %> <%= car.model  %></h3>
           <h5 class="card-subtitle text-muted"> <%= car.category %></h5>
         </div>
         <ul class="list-group list-group-flush">
-          <li class=list-group-item> Daily rate: R$ <%= car.daily_rate  %> </li>
+          <li class=list-group-item> Daily rate: R$ <%= car.daily_rate  %></li>
         </ul>
         <div class="card-body">
           <%= link_to "Details", car_path(car), class: "btn btn-gradient btn-block" %>
@@ -25,5 +25,4 @@
       </div>
     <% end %>
   </div>
-
 </div>
