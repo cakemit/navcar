@@ -115,29 +115,28 @@ end
     email: Faker::Internet.email,
     password: '123456',
     password_confirmation: '123456'
-    )
+  )
 
   5.times do
     car = Car.create!(
-        user_id: user.id ,
-        brand: Faker::Vehicle.manufacture,
-        model: Faker::Vehicle.model,
-        year: Faker::Vehicle.year,
-        km: Faker::Vehicle.kilometrage,
-        daily_rate: rand(400..2000),
-        city: Faker::Address.full_address,
-        category: ["Vintage", "Luxury", "Off-road", "Sport"].sample
-      )
+      user_id: user.id,
+      brand: Faker::Vehicle.manufacture,
+      model: Faker::Vehicle.model,
+      year: Faker::Vehicle.year,
+      km: Faker::Vehicle.kilometrage,
+      daily_rate: rand(400..2000),
+      city: Faker::Address.full_address,
+      category: ["Vintage", "Luxury", "Off-road", "Sport"].sample
+    )
     rental = Rental.create!(
-        user_id: user.id,
-        car_id: car.id,
-        start_date: Date.today,
-        finish_date: Faker::Date.between(from: Date.today, to: '2100-01-01')
-      )
+      user_id: user.id,
+      car_id: car.id,
+      start_date: Date.today,
+      finish_date: Faker::Date.between(from: Date.today, to: '2100-01-01')
+    )
     puts "Created car #{car.brand} - #{car.model} - #{car.year} - #{car.km}km"
     puts "Created rent #{rental.start_date} - #{rental.finish_date}"
   end
-
 end
 puts "Created #{User.count} users"
 puts "Created #{Car.count} cars"
