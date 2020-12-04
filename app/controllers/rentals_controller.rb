@@ -1,6 +1,7 @@
 class RentalsController < ApplicationController
   before_action :set_rental, only: [ :show, :edit, :update ]
   before_action :set_car, only: [ :show, :new, :create, :edit, :update ]
+  before_action :set_user
 
   def index
     @rentals = Rental.where(car_id: params[:car_id])
@@ -62,5 +63,9 @@ class RentalsController < ApplicationController
 
   def set_car
     @car = Car.find(params[:car_id])
+  end
+
+  def set_user
+    @user = current_user
   end
 end
