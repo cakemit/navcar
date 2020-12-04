@@ -3,6 +3,7 @@ class CarsController < ApplicationController
 
   def index
     @cars = policy_scope(Car).order(created_at: :desc)
+    @user = current_user
     # @cars = Car.all
   end
 
@@ -49,7 +50,7 @@ class CarsController < ApplicationController
   private
 
   def car_params
-    params.require(:car).permit(:brand, :model, :year, :km, :daily_rate, :city, :category)
+    params.require(:car).permit(:brand, :model, :year, :km, :daily_rate, :city, :category, photos: [])
   end
 
   def set_car
