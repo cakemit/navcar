@@ -14,13 +14,15 @@ class RentalPolicy < ApplicationPolicy
   # customer can view his own rental
   # car owner can view his car's rental
   def show?
-    record.user == user
+    record.user == user || record.car.user == user
   end
 
+  # customer can view his own rental
   def update?
     record.user == user
   end
 
+  # customer can cancel his own rental
   def destroy?
     record.user == user
   end
