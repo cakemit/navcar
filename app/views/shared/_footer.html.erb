@@ -1,10 +1,10 @@
 <div class="footer">
   <div class="footer-links">
-    <a href="#">Navcar</a>
-    <a href="#">About us</a>
-    <a href="#">Cars blogs</a>
+    <%= link_to "Navcar", root_path %>
+    <%= link_to "About us", about_us_path %>
+    <%= link_to "Cars blogs", blogs_path %>
   </div>
   <div class="footer-copyright">
-    Give yourself a <strong><em>navcar</em></strong> ride, put a break on routine 
+    Give yourself a <strong><em><%= link_to "navcar", root_path %></em></strong> ride. Put the breaks on your routine.
   </div>
 </div>

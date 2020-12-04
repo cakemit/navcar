@@ -1,7 +1,9 @@
 class CarPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      @scope.all
+      # para ser uma view só do owner fazer:
+      # scope.where(user: user)
     end
   end
 
@@ -14,6 +16,10 @@ class CarPolicy < ApplicationPolicy
   end
 
   def update?
-    @user == record.user
+    record.user == user
+  end
+
+  def destroy?
+    record.user == user
   end
 end
