@@ -1,13 +1,39 @@
-<h1>car<h1>
-<% @cars.each do |car| %>
-  <ul class="group-list">
-    <li class='list-group-item list-group-item-action'>
-      <%= link_to car.brand, car_path(car)%> |
-      <%= link_to "Remove",
-        car_path(car),
-        method: :delete,
-        data: { confirm: "Are you sure?", },
-        class: "btn btn-warning" %>
-    </li>
-  </ul>
-<% end %>
+<div class="container">
+
+  <% if policy(Car).create? %>
+    <%= link_to "Add new car", new_car_path,
+                class: "btn btn-gradient"%>
+  <% end %>
+
+  <% @cars.each do |car| %>
+    <ul class="group-list">
+
+      <li class='list-group-item list-group-item-action'>
+
+        <span> <%= car.brand  %> </span>
+        <span> <%= car.model  %> </span>
+        <span> <%= car.year %> </span> -
+        <span> <%= car.city  %> </span>
+
+        <% if policy(car).show? %>
+          <%= link_to "Book", car_path(car),
+            class: "btn btn-flat" %>
+        <% end %>
+
+        <% if policy(car).edit? %>
+          <%= link_to "Update", edit_car_path(car),
+            class: "btn btn-secondary" %>
+        <% end %>
+
+        <% if policy(car).destroy? %>
+          <%= link_to "Remove", car_path(car),
+            method: :delete,
+            data: { confirm: "Are you sure?", },
+            class: "btn btn-secondary" %>
+        <% end %>
+
+      </li>
+    </ul>
+  <% end %>
+
+</div>

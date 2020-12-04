@@ -35,7 +35,8 @@ puts "Seeding database"
         year: Faker::Vehicle.year,
         km: Faker::Vehicle.kilometrage,
         daily_rate: rand(400..2000),
-        city: Faker::Address.full_address
+        city: Faker::Address.full_address,
+        category: Faker::Vehicle.car_type
       )
     rental = Rental.create!(
         user_id: user.id,
