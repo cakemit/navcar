@@ -2,18 +2,18 @@ class CarsController < ApplicationController
   before_action :set_car, only: %i[show edit update destroy]
   before_action :set_user
 
-  # GET cars_path HAS A VIEW
+  # GET cars_path '/cars' VIEW
   def index
     @cars = policy_scope(Car).order(created_at: :desc)
   end
 
-  # GET new_car_path HAS A VIEW
+  # GET new_car_path '/cars/new' VIEW
   def new
     @car = Car.new
     authorize @car
   end
 
-  # POST cars_path
+  # POST cars_path '/cars'
   def create
     @car = Car.new(car_params)
     authorize @car
@@ -24,13 +24,13 @@ class CarsController < ApplicationController
     end
   end
 
-  # GET edit_car_path HAS A VIEW
+  # GET edit_car_path '/cars/:id/edit' VIEW
   def edit
     authorize @car
   end
 
-  # PATCH car_path
-  # PUT car_path
+  # PATCH car_path '/cars/:id'
+  #   PUT car_path '/cars/:id'
   def update
     authorize @car
     if Car.update(car_params)
@@ -40,12 +40,12 @@ class CarsController < ApplicationController
     end
   end
 
-  # GET car_path HAS A VIEW
+  # GET car_path '/cars/:id' VIEW
   def show
     authorize @car
   end
 
-  # DELETE car_path
+  # DELETE car_path '/cars/:id'
   def destroy
     authorize @car
     @car.destroy
