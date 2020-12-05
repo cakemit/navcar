@@ -3,16 +3,21 @@ class RentalsController < ApplicationController
   before_action :set_car, only: [ :show, :new, :create, :edit, :update ]
   before_action :set_user
 
+  # GET rentals_path '/rentals' VIEW
+  # GET car_rentals_path '/cars/:car_id/rentals' VIEW
   def index
     @rentals = Rental.where(car_id: params[:car_id])
   end
 
+
+  # GET car_rental_path '/cars/:car_id/rentals/:id' VIEW
   def show
     time = @rental.finish_date - @rental.start_date
     @price = time * @rental.car.daily_rate
     authorize @rental
   end
 
+  # GET new_car_rental_path '/cars/:car_id/rentals/new' VIEW
   def new
     @rental = Rental.new
     @rental.car = @car
@@ -20,6 +25,7 @@ class RentalsController < ApplicationController
     authorize @rental
   end
 
+  # POST car_rentals_path '/cars/:car_id/rentals'
   def create
     @rental = Rental.new(rental_params)
     @rental.car = @car
@@ -33,9 +39,12 @@ class RentalsController < ApplicationController
     end
   end
 
+  # GET edit_car_rental_path '/cars/:car_id/rentals/:id/edit' VIEW
   def edit
   end
 
+  # PATCH car_rental_path '/cars/:car_id/rentals/:id'
+  #   PUT car_rental_path '/cars/:car_id/rentals/:id'
   def update
     authorize @rental
     if @rental.update(rental_params)
@@ -45,6 +54,7 @@ class RentalsController < ApplicationController
     end
   end
 
+  # DELETE car_rental_path '/cars/:car_id/rentals/:id'
   def destroy
     authorize @rental
   end
