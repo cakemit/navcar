@@ -17,7 +17,7 @@ class RentalPolicy < ApplicationPolicy
     record.user == user || record.car.user == user
   end
 
-  # customer can view his own rental
+  # customer can edit his own rental
   def update?
     record.user == user
   end
