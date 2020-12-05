@@ -1,3 +1,22 @@
-<div class="container">
-  <%= render 'shared/car_details' %>
+<div class="container-centered">
+  <div class="card mt-5">
+    <%= render 'shared/car_details' %>
+    <%# buttons for actions %>
+    <div class="card-body d-flex">
+      <% unless @car.user == @user %>
+        <%= link_to "Book", new_car_rental_path(@car), class: "btn btn-flat flex-fill mx-1" %>
+      <% end %>
+
+      <% if policy(@car).edit? %>
+        <%= link_to "Update", edit_car_path(@car), class: "btn btn-secondary flex-fill mx-1" %>
+      <% end %>
+
+      <% if policy(@car).destroy? %>
+        <%= link_to "Remove", car_path(@car),
+                              method: :delete,
+                              data: { confirm: "Are you sure?", },
+                              class: "btn btn-secondary flex-fill mx-1" %>
+        <% end %>
+    </div>
+  </div>
 </div>
