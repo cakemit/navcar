@@ -1,9 +1,28 @@
-<% @rentals.each do |rental| %>
-<p> Rental ID <%= rental.id %></p>
-<p> Car ID <%= rental.car.id %></p>
-<p> Car brand <%= rental.car.brand %></p>
-<p> First name <%= rental.user.first_name %></p>
-<p> Last Name <%= rental.user.last_name %> </p>
-<p> Date Start <%= rental.start_date %></p>
-<p> Date Finish <%= rental.finish_date %></p>
-<% end %>
+<div class="container p-5">
+  <h2>My rentals</h2>
+  <%# ini list of rentals %>
+  <table class="table table-sm table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Rental ID</th>
+        <th scope="col">Car</th>
+        <th scope="col">Start</th>
+        <th scope="col">Finish</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% @rentals.each do |rental| %>
+      <tr>
+        <th scope="row"><%= rental.id %></th>
+        <td><%= rental.car.brand %></td>
+        <td><%= rental.start_date %></td>
+        <td><%= rental.finish_date %></td>
+        <td><%= link_to 'View', car_rental_path(car_id: rental.car.id, id: rental.id), class: "btn btn-flat" %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+</div>
