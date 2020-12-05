@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :cars do
-    resources :rentals
-    resources :reviews, only: %i[new create index]
+    resources :rentals, only: %i[ new create show ]
+    resources :reviews, only: %i[ new create ]
   end
-  resources :rentals, only: :index
+    resources :rentals, only: [ :index, :destroy ]
 end

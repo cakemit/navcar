@@ -1,15 +1,13 @@
 class RentalsController < ApplicationController
-  before_action :set_rental, only: [ :show, :edit, :update ]
-  before_action :set_car, only: [ :show, :new, :create, :edit, :update ]
-  before_action :set_user
+  before_action :set_rental, only: [ :show, :destroy ]
+  before_action :set_car, only: [ :show, :new, :create ]
 
   # GET rentals_path '/rentals' VIEW
-  # GET car_rentals_path '/cars/:car_id/rentals' VIEW
   def index
-    @rentals = Rental.where(car_id: params[:car_id])
+    @user = current_user
+    @rentals = policy_scope(Rental).order(created_at: :desc)
   end
-
-
+  
   # GET car_rental_path '/cars/:car_id/rentals/:id' VIEW
   def show
     time = @rental.finish_date - @rental.start_date
@@ -20,8 +18,7 @@ class RentalsController < ApplicationController
   # GET new_car_rental_path '/cars/:car_id/rentals/new' VIEW
   def new
     @rental = Rental.new
-    @rental.car = @car
-    @rental.user = current_user
+    @car = Car.find(params[:car_id])
     authorize @rental
   end
 
@@ -31,32 +28,17 @@ class RentalsController < ApplicationController
     @rental.car = @car
     @rental.user = current_user
     authorize @rental
-
-    if @rental.save!
+    if @rental.save
       redirect_to car_rental_path(@car, @rental)
     else
       render :new
     end
   end
 
-  # GET edit_car_rental_path '/cars/:car_id/rentals/:id/edit' VIEW
-  def edit
-  end
-
-  # PATCH car_rental_path '/cars/:car_id/rentals/:id'
-  #   PUT car_rental_path '/cars/:car_id/rentals/:id'
-  def update
-    authorize @rental
-    if @rental.update(rental_params)
-      redirect_to car_rental_path(@car, @rental)
-    else
-      render :edit
-    end
-  end
-
-  # DELETE car_rental_path '/cars/:car_id/rentals/:id'
+  # DELETE rental_path '/rentals/:id'
   def destroy
     authorize @rental
+    @rental.destroy
   end
 
   # ----------------------------------------------------------------------------
@@ -67,7 +49,6 @@ class RentalsController < ApplicationController
   end
 
   def set_rental
-    # @rental = Rental.find(params[:id])
     @rental = Rental.find(params[:id])
   end
 
@@ -75,7 +56,4 @@ class RentalsController < ApplicationController
     @car = Car.find(params[:car_id])
   end
 
-  def set_user
-    @user = current_user
-  end
 end
