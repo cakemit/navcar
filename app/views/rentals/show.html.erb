@@ -1,11 +1,24 @@
-<div class="container">
-  <h1> Rental ID <%= @rental.id %></h1>
-  <p> Car ID <%= @rental.car.id %></p>
-  <p> user ID <%= @rental.user.id %></p>
-  <p> Car brand <%= @rental.car.brand %></p>
-  <p> First name <%= @rental.user.first_name %></p>
-  <p> Last Name <%= @rental.user.last_name %> </p>
-  <p> Date Start <%= @rental.start_date %></p>
-  <p> Date Finish <%= @rental.finish_date %></p>
-  <p> Total cost <%= @price %></p>
+<div class="container-show-rental">
+  <div class="card">
+    <%= render 'shared/car_details' %>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title"> Rental ID <%= @rental.id %></h4>
+      <ul class="list-group">
+        <li class=list-group-item> <%= @rental.user.first_name %> <%= @rental.user.last_name %> </li>
+        <li class=list-group-item> From <%= @rental.start_date %> to <%= @rental.finish_date %></li>
+        <li class=list-group-item> Cost: R$ <%= @price %></li>
+      </ul>
+      <div class="card-body d-flex-inline">
+        <% if policy(@rental).destroy? %>
+          <%= link_to "Cancel", car_path(@car),
+                                method: :delete,
+                                data: { confirm: "Are you sure? Cancellation fees may apply", },
+                                class: "btn btn-secondary flex-fill mx-1" %>
+          <% end %>
+      </div>
+    </div>
+  </div>
 </div>

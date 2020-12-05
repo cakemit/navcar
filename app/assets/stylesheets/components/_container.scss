@@ -5,4 +5,24 @@
     padding-right: 15px;
     padding-left: 15px;
     margin: 40px;
+    // border: 1px solid red;
+  }
+
+.container-centered {
+  display: grid;
+  justify-content: space-around;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin: 40px;
+  // border: 1px solid red;
+}
+
+.container-show-rental {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+  justify-content: space-around;
+  padding: 15px 0;
+  margin: 0 280px;
+  // border: 1px solid red;
 }
