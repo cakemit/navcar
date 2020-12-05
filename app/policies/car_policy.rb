@@ -2,8 +2,6 @@ class CarPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       @scope.all
-      # para ser uma view só do owner fazer:
-      # scope.where(user: user)
     end
   end
 
