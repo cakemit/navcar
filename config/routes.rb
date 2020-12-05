@@ -9,5 +9,4 @@ Rails.application.routes.draw do
     resources :rentals
     resources :reviews, only: %i[new create index]
   end
-  resources :rentals, only: :index
 end

@@ -9,7 +9,6 @@ class RentalsController < ApplicationController
     @rentals = Rental.where(car_id: params[:car_id])
   end
 
-
   # GET car_rental_path '/cars/:car_id/rentals/:id' VIEW
   def show
     time = @rental.finish_date - @rental.start_date
@@ -67,7 +66,6 @@ class RentalsController < ApplicationController
   end
 
   def set_rental
-    # @rental = Rental.find(params[:id])
     @rental = Rental.find(params[:id])
   end
 
