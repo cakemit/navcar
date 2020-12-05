@@ -1,5 +1,6 @@
 <%= simple_form_for [@car, @rental] do |f|%>
 <%= f.input :start_date  %>
 <%= f.input :finish_date  %>
-<%= f.submit class:"btn btn-primary" %>
+<span><strong>Total price: </strong>R$ <%= @car.daily_rate %></span><br>
+<%= f.submit class:"btn btn-primary mt-2" %>
 <% end %>

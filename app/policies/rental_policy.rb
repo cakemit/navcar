@@ -8,7 +8,7 @@ class RentalPolicy < ApplicationPolicy
 
   # qualquer user pode criar new car rental
   def create?
-    true
+    record.user == user && record.car.user != user
   end
 
   # customer can view his own rental
