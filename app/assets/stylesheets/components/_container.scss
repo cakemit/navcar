@@ -10,10 +10,10 @@
 
 .container-centered {
   display: grid;
+  grid-template-columns: 1fr;
   justify-content: space-around;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin: 40px;
+  padding: 15px 0;
+  margin: 0 280px;
   // border: 1px solid red;
 }
 
