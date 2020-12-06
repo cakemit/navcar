@@ -39,6 +39,7 @@ class RentalsController < ApplicationController
   def destroy
     authorize @rental
     @rental.destroy
+    redirect_to rentals_path
   end
 
   # ----------------------------------------------------------------------------
