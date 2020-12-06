@@ -1,15 +1,46 @@
 <div class="container mt-5">
 
-  <%# INSERIR SEARCH? %>
-  <%# INSERIR TABS POR CATEGORIA? %>
   <%# FAZER TODOS OS CARDS FICAREM DO MESMO TAMANHO MESMO QUANDO O NOME DO CARRO OCUPAR DUAS LINHAS? %>
+  <%# INSERIR TABS para separar carros POR CATEGORIA? %>
+  <%# INSERIR SEARCH por cidade? %>
 
   <div class="cards">
     <% @cars.each do |car| %>
+      <%# ini each card %>
       <div class="card">
-        <%= link_to car_path(car) do %>
-          <%= image_tag 'logo', { class: "card-img-top" } %>
+        <% if car.photos.attached? %>
+        <%# ini card photo carousel %>
+          <div id="carPhotosCarousel" class="carousel slide" data-ride="carousel" data-wrap="false" data-interval="false">
+
+            <div class="carousel-inner">
+              <% car.photos.each_with_index do |photo, index| %>
+                <% if index.zero? %>
+                  <div class="carousel-item active">
+                <% else %>
+                  <div class="carousel-item">
+                <% end %>
+                  <%= cl_image_tag(photo.key, :class=>"card-img-top d-block", 
+                                              :transformation=>{ height: 200, crop: :fill }) %>
+                </div>
+              <% end %>
+            </div>
+
+            <a class="carousel-control-prev" href="#carPhotosCarousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carPhotosCarousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+
+          </div>
+        <%# end card photo carousel %>
+        <% else %>
+          <%= image_tag 'logo', class: "card-img-top" %>
         <% end %>
+
+        <%# ini card infos %>
         <div class="card-body">
           <h3 class="card-title"> <%= car.brand  %> <%= car.model  %></h3>
           <h5 class="card-subtitle text-muted"> <%= car.category %></h5>
@@ -17,10 +48,16 @@
         <ul class="list-group list-group-flush">
           <li class=list-group-item> Daily rate: R$ <%= car.daily_rate  %></li>
         </ul>
+        <%# end card infos %>
+
+        <%# ini button at the bottom of the card %>
         <div class="card-body">
           <%= link_to "Details", car_path(car), class: "btn btn-gradient btn-block" %>
         </div>
+        <%# end button at the bottom of the card %>
+
       </div>
+      <%# end each card %>
     <% end %>
   </div>
 </div>
