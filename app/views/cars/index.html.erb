@@ -1,16 +1,16 @@
-<div class="container mt-5">
 
   <%# FAZER TODOS OS CARDS FICAREM DO MESMO TAMANHO MESMO QUANDO O NOME DO CARRO OCUPAR DUAS LINHAS? %>
   <%# INSERIR TABS para separar carros POR CATEGORIA? %>
   <%# INSERIR SEARCH por cidade? %>
 
+<div class="container mt-5">
   <div class="cards">
     <% @cars.each do |car| %>
       <%# ini each card %>
       <div class="card">
         <% if car.photos.attached? %>
         <%# ini card photo carousel %>
-          <div id="carPhotosCarousel" class="carousel slide" data-ride="carousel" data-wrap="false" data-interval="false">
+          <div id="carPhotosCarousel<%= car.id %>" class="carousel slide" data-ride="carousel" data-wrap="false" data-interval="false">
 
             <div class="carousel-inner">
               <% car.photos.each_with_index do |photo, index| %>
@@ -25,11 +25,11 @@
               <% end %>
             </div>
 
-            <a class="carousel-control-prev" href="#carPhotosCarousel" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carPhotosCarousel<%= car.id %>" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carPhotosCarousel" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#carPhotosCarousel<%= car.id %>" role="button" data-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
