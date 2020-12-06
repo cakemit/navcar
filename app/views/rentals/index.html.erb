@@ -19,7 +19,11 @@
         <td><%= rental.car.brand %></td>
         <td><%= rental.start_date %></td>
         <td><%= rental.finish_date %></td>
-        <td><%= link_to 'View', car_rental_path(car_id: rental.car.id, id: rental.id), class: "btn btn-flat" %></td>
+        <td>
+          <%= link_to 'View', car_rental_path(car_id: rental.car.id, id: rental.id), 
+                              class: "btn btn-flat btn-sm", 
+                              style: "width: 80px;" %>
+        </td>
       </tr>
     <% end %>
     </tbody>
