@@ -54,7 +54,7 @@ categories = ["Vintage", "Luxury", "Off-road", "Sport"]
                       content_type: 'image/jpg')
     end
 
-    puts "CREATED CAR_ID: #{car.id} - #{car.year} #{car.brand} #{car.model} 
+    puts "CREATED CAR_ID: #{car.id} - #{car.year} #{car.brand} #{car.model}
           FOR OWNER_ID: #{car.user.id} - #{car.user.email} (pw:123456)
           WITH #{car.photos.count} PHOTOS IN #{car.category}"
   end
