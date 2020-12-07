@@ -77,11 +77,17 @@ class CarsController < ApplicationController
     authorize @cars
   end
 
+  # GET my_cars_cars_path => /cars/:id/owner
+  def owner
+    @mycars = Car.where(user_id: params[:id])
+    authorize @mycars
+  end
+
   # ----------------------------------------------------------------------------
   private
 
   def car_params
-    params.require(:car).permit(:brand, :model, :year, :km, 
+    params.require(:car).permit(:brand, :model, :year, :km,
                                 :daily_rate, :city, :category, photos: [])
   end
 
