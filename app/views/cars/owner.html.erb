@@ -17,6 +17,7 @@
           <th scope="col">Year</th>
           <th scope="col">KM</th>
           <th scope="col">Daily rate</th>
+          <th scope="col">Actions</th>
         </tr>
       </thead>
 
@@ -28,7 +29,10 @@
           <td><%= car.year %></td>
           <td><%= car.km %></td>
           <td><%= price_mask_real(car.daily_rate) %></td>
-          
+          <td>
+          <%= link_to 'View', car_path(car) %>
+          <%= link_to 'Delete', car_path(car), method: :delete %>
+          </td>
         </tr>
       <% end %>
       </tbody>

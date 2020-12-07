@@ -54,7 +54,7 @@ class CarsController < ApplicationController
   def destroy
     authorize @car
     @car.destroy
-    redirect_to cars_path
+    redirect_to owner_car_path
   end
 
   # GET luxury_cars_path <=> '/cars/luxury'
@@ -83,7 +83,7 @@ class CarsController < ApplicationController
 
   # GET my_cars_cars_path => /cars/:id/owner
   def owner
-    @mycars = Car.where(user_id: params[:id])
+    @mycars = Car.where(user_id: @user.id)
     authorize @mycars
   end
 
