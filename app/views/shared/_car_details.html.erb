@@ -31,11 +31,11 @@
   <%= image_tag 'logo', class: "card-img-top" %>
 <% end %>
 
-<div class="card-body">
+<div class="card-body" style="background-color: #f7f7ef">
   <span class="card-title" style="font-size: 1.5rem;"> <%= @car.year %> <%= @car.brand  %> <%= @car.model  %> </span>
 </div>
 <ul class="list-group list-group-flush">
-  <li class=list-group-item> <%= @car.km %> km</li>
-  <li class=list-group-item> Location: <%= @car.user.address  %> </li>
-  <li class=list-group-item> Rent per day: <%= price_mask_real(@car.daily_rate)  %> </li>
+  <li class=list-group-item style="background-color: #f7f7ef"> <%= @car.km %> km</li>
+  <li class=list-group-item style="background-color: #f7f7ef"> Location: <%= @car.user.address  %> </li>
+  <li class=list-group-item style="background-color: #f7f7ef"> Rent per day: <%= price_mask_real(@car.daily_rate)  %> </li>
 </ul>
