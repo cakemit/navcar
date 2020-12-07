@@ -1,7 +1,7 @@
 module ApplicationHelper
   # formats a number#float to BRZ currency standard
   def price_mask_real(price)
-    number_to_currency(price, unit: 'R$ ', separator: ',', delimiter: '.')
+    number_to_currency(price, precision: 0, unit: 'R$ ', separator: ',', delimiter: '.')
   end
 
   # returns a date as string formatted to dd-mmm-yyyy (01-Jan-2020)
