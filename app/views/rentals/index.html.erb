@@ -14,6 +14,7 @@
           <th scope="col">Car</th>
           <th scope="col">Start</th>
           <th scope="col">Finish</th>
+          <th scope="col">Amount</th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -22,9 +23,10 @@
       <% @rentals.each do |rental| %>
         <tr>
           <th scope="row"><%= rental.id %></th>
-          <td><%= rental.car.brand %></td>
+          <td><%= rental.car.year %> <%= rental.car.brand %> <%= rental.car.model %></td>
           <td><%= date_mask(rental.start_date) %></td>
           <td><%= date_mask(rental.finish_date) %></td>
+          <td><%= price_mask_real(rental.amount) %></td>
           <td>
             <%= link_to 'View', car_rental_path(car_id: rental.car.id, id: rental.id), 
                                 class: "btn btn-flat btn-sm", 

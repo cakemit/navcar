@@ -19,8 +19,8 @@ puts "(1) Creating an owner with 8 cars"
 puts " "
 
 owner = User.create!(
-  first_name: "OwnerNome",
-  last_name: "OwnerSobrenome",
+  first_name: "Owner",
+  last_name: "Schrubbles",
   phone: Faker::PhoneNumber.cell_phone,
   address: "Rua Equador, 831, Santo Cristo, Rio de Janeiro, RJ, Brasil",
   email: "owner@teste.com",
@@ -66,10 +66,10 @@ puts "(2) Creating a user with 5 rentals of owner's cars"
 puts " "
 
 user = User.create!(
-  first_name: "UserNome",
-  last_name: "UserSobrenome",
+  first_name: "User",
+  last_name: "Shrubbles",
   phone: Faker::PhoneNumber.cell_phone,
-  address: Faker::Address.full_address,
+  address: "Rua Colômbia, 3894 - Jardim Paulista, São Paulo - SP",
   email: "user@teste.com",
   password: '123456',
   password_confirmation: '123456'
@@ -79,11 +79,15 @@ puts " "
 
 5.times do
   rental_car = Car.find(Car.all.ids.sample)
+  start_date = Faker::Date.between(from: Date.today, to: '2021-02-01')
+  finish_date = start_date + (1..5).to_a.sample.days
+  amount = rental_car.daily_rate * (finish_date - start_date)
   rental = Rental.create!(
     user_id: user.id,
     car_id: rental_car.id,
-    start_date: Date.today,
-    finish_date: Faker::Date.between(from: Date.today, to: '2100-01-01')
+    start_date: start_date,
+    finish_date: finish_date,
+    amount: amount
   )
   puts "CREATED RENTAL_ID: #{rental.id} FROM #{rental.start_date} TO #{rental.finish_date}
         RENTAL OF CAR_ID: #{rental.car.id} - #{rental.car.year} #{rental.car.brand} <=> OWNER_ID: #{rental.car.user.id} OWNER EMAIL: #{rental.car.user.email}
@@ -98,8 +102,8 @@ puts "(3) Creating an admin user account"
 puts " "
 
 admin = User.create!(
-  first_name: "AdminNome",
-  last_name: "AdminSobrenome",
+  first_name: "Equipe",
+  last_name: "Navcar",
   phone: Faker::PhoneNumber.cell_phone,
   address: Faker::Address.full_address,
   admin: true, # <<<<<<<<<<<<<<<<<<<<<<<< THIS MAKES AN ADMIN ACCOUNT
