@@ -26,7 +26,7 @@ class RentalsController < ApplicationController
     @rental.car = @car
     @rental.user = current_user
     days = @rental.finish_date - @rental.start_date
-    @amount = days * @rental.car.daily_rate
+    @rental.amount = days * @rental.car.daily_rate
     authorize @rental
     if @rental.save
       redirect_to car_rental_path(@car, @rental)
