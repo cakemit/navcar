@@ -1,3 +1,5 @@
+<% provide(:title, 'Home') %>
+
 <%# ini navbar %>
 <%# end navbar %>
 <%# ini banner %>
@@ -74,9 +76,11 @@
   <%# end search-locations %>
   -->
   <%# ini card-category %>
-  <h2 class="py-3 mt-3">...and do it in style</h2>
+  <%# <h2 class="py-3 mt-3">...and do it in style</h2> %>
   <div class="cards">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_url("luxury") %>)">
+    <div class="card-category"
+        style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= 
+        image_url("luxury") %>)">
       Luxury
     </div>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_url("vintage") %>)">

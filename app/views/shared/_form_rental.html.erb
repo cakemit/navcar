@@ -1,6 +1,6 @@
 <%= simple_form_for [@car, @rental] do |f|%>
 <%= f.input :start_date  %>
 <%= f.input :finish_date  %>
-<span><strong>Total price: </strong>R$ <%= @car.daily_rate %></span><br>
+<span><strong>Daily rate: </strong><%= price_mask_real(@car.daily_rate) %></span><br>
 <%= f.submit class:"btn btn-gradient mt-2" %>
 <% end %>
