@@ -2,18 +2,18 @@ class CarsController < ApplicationController
   before_action :set_car, only: %i[show edit update destroy]
   before_action :set_user
 
-  # GET cars_path '/cars' VIEW
+  # GET cars_path <=> '/cars' VIEW
   def index
     @cars = policy_scope(Car).order(created_at: :desc)
   end
 
-  # GET new_car_path '/cars/new' VIEW
+  # GET new_car_path <=> '/cars/new' VIEW
   def new
     @car = Car.new
     authorize @car
   end
 
-  # POST cars_path '/cars'
+  # POST cars_path <=> '/cars'
   def create
     @car = Car.new(car_params)
     authorize @car
@@ -25,13 +25,13 @@ class CarsController < ApplicationController
     end
   end
 
-  # GET edit_car_path '/cars/:id/edit' VIEW
+  # GET edit_car_path <=> '/cars/:id/edit' VIEW
   def edit
     authorize @car
   end
 
-  # PATCH car_path '/cars/:id'
-  #   PUT car_path '/cars/:id'
+  # PATCH car_path <=> '/cars/:id'
+  #   PUT car_path <=> '/cars/:id'
   def update
     authorize @car
     if Car.update(car_params)
@@ -46,26 +46,27 @@ class CarsController < ApplicationController
     authorize @car
   end
 
-  # DELETE car_path '/cars/:id'
+  # DELETE car_path <=> '/cars/:id'
   def destroy
     authorize @car
     @car.destroy
     redirect_to cars_path
   end
 
-  # GET luxury_cars_path /cars/luxury
+  # GET luxury_cars_path <=> '/cars/luxury'
   def luxury
+    @cars = policy_scope(Car).where(category: "Luxury").order(created_at: :desc)
   end
 
-  # GET vintage_cars_path /cars/vintage
+  # GET vintage_cars_path <=> /cars/vintage
   def vintage
   end
 
-  # GET sport_cars_path /cars/sport
+  # GET sport_cars_path <=> /cars/sport
   def sport
   end
 
-  # GET off_road_cars_path /cars/off_road
+  # GET off_road_cars_path <=> /cars/off_road
   def off_road
   end
 
