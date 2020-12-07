@@ -4,7 +4,11 @@ class CarsController < ApplicationController
 
   # GET cars_path <=> '/cars' VIEW
   def index
-    @cars = policy_scope(Car).order(created_at: :desc)
+    if params[:query].present?
+      @cars = policy_scope(Car).search_by_address(params[:query]).order(created_at: :desc)
+    else
+      @cars = policy_scope(Car).order(created_at: :desc)
+    end
   end
 
   # GET new_car_path <=> '/cars/new' VIEW
@@ -81,7 +85,7 @@ class CarsController < ApplicationController
   private
 
   def car_params
-    params.require(:car).permit(:brand, :model, :year, :km, 
+    params.require(:car).permit(:brand, :model, :year, :km,
                                 :daily_rate, :city, :category, photos: [])
   end
 

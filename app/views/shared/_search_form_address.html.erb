@@ -1,0 +1,8 @@
+<%= form_tag cars_path, method: :get do %>
+  <%= text_field_tag :user_address,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a car by location"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
