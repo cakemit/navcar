@@ -87,7 +87,7 @@
   &:hover{
     color: $red;
     font-weight: 700;
-    text-shadow: 0 0 4px rgba(255,255,255,0.2);
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
     text-decoration: none;
   }
 }
@@ -139,9 +139,9 @@
 }
 
 .card {
-  background-color: $beige;
+  background-color: $light-gray;
 }
 
 .list-group-item {
-  background-color: $beige;
+  background-color: $light-gray;
 }
