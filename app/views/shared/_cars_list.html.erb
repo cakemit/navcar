@@ -7,7 +7,7 @@ CORRIGIR O TAMANHO DAS FOTOS PARA QUE FIQUEM SEMPRE COM O MESMO HEIGHT?
 <div class="cards">
   <% @cars.each do |car| %>
     <%# ini each card %>
-    <div class="card" style="background-color: #f7f7ef">
+    <div class="card" style="background-color: $beige">
       <% if car.photos.attached? %>
       <%# ini card photo carousel %>
         <div id="carPhotosCarousel<%= car.id %>" class="carousel slide" 
