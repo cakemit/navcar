@@ -4,7 +4,7 @@
   <%# INSERIR TABS para separar carros POR CATEGORIA? %>
   <%# INSERIR SEARCH por cidade? %>
 
-<div class="container my-5">
+<div class="container my-4">
 
   <nav class="nav nav-tabs flex-column flex-sm-row">
     <a class="nav-link active" href="#">All</a>
@@ -19,7 +19,8 @@
       <div class="card" style="background-color: #f7f7ef">
         <% if car.photos.attached? %>
         <%# ini card photo carousel %>
-          <div id="carPhotosCarousel<%= car.id %>" class="carousel slide" data-ride="carousel" data-wrap="false" data-interval="false">
+          <div id="carPhotosCarousel<%= car.id %>" class="carousel slide" 
+                data-ride="carousel" data-wrap="false" data-interval="false">
 
             <div class="carousel-inner">
               <% car.photos.each_with_index do |photo, index| %>
@@ -34,11 +35,13 @@
               <% end %>
             </div>
 
-            <a class="carousel-control-prev" href="#carPhotosCarousel<%= car.id %>" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carPhotosCarousel<%= car.id %>" 
+                role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carPhotosCarousel<%= car.id %>" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#carPhotosCarousel<%= car.id %>" 
+                role="button" data-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
@@ -51,17 +54,25 @@
 
         <%# ini card infos %>
         <div class="card-body">
-          <h3 class="card-title"> <%= car.brand  %> <%= car.model  %></h3>
-          <h5 class="card-subtitle text-muted"> <%= car.category %></h5>
+          <span class="card-title" style="font-size: 1.25em;">
+            <%= car.brand  %> <%= car.model  %>
+          </span> 
+          <br>
+          <span class="card-subtitle text-muted" style="font-size: 1.1em;  line-height: 1.5;">
+            <%= car.category %>
+          </span>
         </div>
+
         <ul class="list-group list-group-flush">
-          <li class=list-group-item style="background-color: rgba(128, 15, 15, 0)"> Daily rate: R$ <%= car.daily_rate  %></li>
+          <span class=list-group-item style="background-color: rgba(128, 15, 15, 0)">
+            Daily rate: R$ <%= car.daily_rate  %>
+          </span>
         </ul>
         <%# end card infos %>
 
         <%# ini button at the bottom of the card %>
         <div class="card-body">
-          <%= link_to "Details", car_path(car), class: "btn btn-gradient btn-block" %>
+          <%= link_to "Details", car_path(car), class: "btn btn-flat btn-block btn-sm" %>
         </div>
         <%# end button at the bottom of the card %>
 

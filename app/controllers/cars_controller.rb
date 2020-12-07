@@ -53,10 +53,28 @@ class CarsController < ApplicationController
     redirect_to cars_path
   end
 
+  # GET luxury_cars_path /cars/luxury
+  def luxury
+  end
+
+  # GET vintage_cars_path /cars/vintage
+  def vintage
+  end
+
+  # GET sport_cars_path /cars/sport
+  def sport
+  end
+
+  # GET off_road_cars_path /cars/off_road
+  def off_road
+  end
+
+  # ----------------------------------------------------------------------------
   private
 
   def car_params
-    params.require(:car).permit(:brand, :model, :year, :km, :daily_rate, :city, :category, photos: [])
+    params.require(:car).permit(:brand, :model, :year, :km, 
+                                :daily_rate, :city, :category, photos: [])
   end
 
   def set_car
