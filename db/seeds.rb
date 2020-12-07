@@ -22,7 +22,7 @@ owner = User.create!(
   first_name: "OwnerNome",
   last_name: "OwnerSobrenome",
   phone: Faker::PhoneNumber.cell_phone,
-  address: Faker::Address.full_address,
+  address: "Rua Equador, 831, Santo Cristo, Rio de Janeiro, RJ, Brasil",
   email: "owner@teste.com",
   password: '123456',
   password_confirmation: '123456'
@@ -41,7 +41,6 @@ categories = ["Vintage", "Luxury", "Off-road", "Sport"]
       year: Faker::Vehicle.year,
       km: Faker::Vehicle.kilometrage,
       daily_rate: rand(400..2000),
-      city: Faker::Address.full_address,
       category: category
     )
 
