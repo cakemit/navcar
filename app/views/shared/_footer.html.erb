@@ -1,12 +1,16 @@
-<div class="footer">
-  <div class="footer-links">
-    <%= link_to "Navcar", root_path %>
-    <%= link_to "About us", about_us_path %>
-    <%= link_to "Car blogs", blogs_path %>
+<% if yield(:title).downcase == 'about us' %>
+  <div class="footer fixed-bottom">
+<% else %>
+  <div class="footer">
+<% end %>
+    <div class="footer-links">
+      <%= link_to "Navcar", root_path %>
+      <%= link_to "About us", about_us_path %>
+      <%= link_to "Car blogs", blogs_path %>
+    </div>
+    <div class="footer-copyright">
+      <span>
+      Give yourself a <strong><em><%= link_to "navcar", root_path %></em></strong> ride. Put the breaks on your routine.
+      </span>
+    </div>
   </div>
-  <div class="footer-copyright">
-    <span>
-    Give yourself a <strong><em><%= link_to "navcar", root_path %></em></strong> ride. Put the breaks on your routine.
-    </span>
-  </div>
-</div>

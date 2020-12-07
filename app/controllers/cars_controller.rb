@@ -34,7 +34,7 @@ class CarsController < ApplicationController
   #   PUT car_path <=> '/cars/:id'
   def update
     authorize @car
-    if Car.update(car_params)
+    if @car.update(car_params)
       redirect_to car_path(@car)
     else
       render :edit
@@ -81,7 +81,7 @@ class CarsController < ApplicationController
   private
 
   def car_params
-    params.require(:car).permit(:brand, :model, :year, :km, 
+    params.require(:car).permit(:brand, :model, :year, :km,
                                 :daily_rate, :city, :category, photos: [])
   end
 
