@@ -55,19 +55,26 @@ class CarsController < ApplicationController
 
   # GET luxury_cars_path <=> '/cars/luxury'
   def luxury
-    @cars = policy_scope(Car).where(category: "Luxury").order(created_at: :desc)
+    @cars = Car.where(category: "Luxury")
+    authorize @cars
   end
 
   # GET vintage_cars_path <=> /cars/vintage
   def vintage
+    @cars = Car.where(category: "Vintage")
+    authorize @cars
   end
 
   # GET sport_cars_path <=> /cars/sport
   def sport
+    @cars = Car.where(category: "Sport")
+    authorize @cars
   end
 
   # GET off_road_cars_path <=> /cars/off_road
   def off_road
+    @cars = Car.where(category: "Off-road")
+    authorize @cars
   end
 
   # ----------------------------------------------------------------------------

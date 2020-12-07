@@ -1,7 +1,7 @@
 class CarPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      @scope.all
+      scope.all
     end
   end
 
@@ -24,4 +24,21 @@ class CarPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def luxury?
+    true
+  end
+
+  def sport?
+    true
+  end
+
+  def off_road?
+    true
+  end
+
+  def vintage?
+    true
+  end
+
 end
