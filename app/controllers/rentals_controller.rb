@@ -1,13 +1,13 @@
 class RentalsController < ApplicationController
-  before_action :set_rental, only: [ :show, :destroy ]
-  before_action :set_car, only: [ :show, :new, :create ]
+  before_action :set_rental, only: %i[show destroy]
+  before_action :set_car, only: %i[show new create]
+  before_action :set_user
 
   # GET rentals_path '/rentals' VIEW
   def index
-    @user = current_user
     @rentals = policy_scope(Rental).order(created_at: :desc)
   end
-  
+
   # GET car_rental_path '/cars/:car_id/rentals/:id' VIEW
   def show
     authorize @rental
@@ -57,4 +57,7 @@ class RentalsController < ApplicationController
     @car = Car.find(params[:car_id])
   end
 
+  def set_user
+    @user = current_user
+  end
 end
