@@ -13,7 +13,7 @@
             <li class=list-group-item><%= @rental.user.first_name %> <%= @rental.user.last_name %> </li>
             <li class=list-group-item>from <%= date_mask(@rental.start_date) %></li>
             <li class=list-group-item>to <%= date_mask(@rental.finish_date) %></li>
-            <li class=list-group-item>Total amount: <%= price_mask_real(@price) %></li>
+            <li class=list-group-item>Total amount: <%= price_mask_real(@rental.amount) %></li>
           </ul>
           <div class="card-body d-flex-inline">
             <% if policy(@rental).destroy? %>

@@ -30,8 +30,8 @@
           <td><%= car.km %></td>
           <td><%= price_mask_real(car.daily_rate) %></td>
           <td>
-          <%= link_to 'View', car_path(car) %>
-          <%= link_to 'Delete', car_path(car), method: :delete %>
+          <%= link_to 'View', car_path(car), class: "btn btn-flat"%>
+          <%= link_to 'Delete', car_path(car), method: :delete, class: "btn btn-flat" %>
           </td>
         </tr>
       <% end %>
