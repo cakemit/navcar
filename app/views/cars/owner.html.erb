@@ -1,0 +1,37 @@
+<% provide(:title, 'My Cars') %>
+
+<div class="container p-5">
+  <h2>My cars</h2>
+  <% if @mycars.count.zero? %>
+    <p>You don't have any cars</p>
+    <%= link_to 'Browse cars', cars_path, 
+                        class: "btn btn-flat" %>
+
+  <% else %>
+    <%# ini list of rentals %>
+    <table class="table table-sm table-hover text-center">
+      <thead>
+        <tr>
+          <th scope="col">Brand</th>
+          <th scope="col">Model</th>
+          <th scope="col">Year</th>
+          <th scope="col">KM</th>
+          <th scope="col">Daily rate</th>
+        </tr>
+      </thead>
+
+      <tbody>
+      <% @mycars.each do |car| %>
+        <tr>
+          <td><%= car.brand %></td>
+          <td><%= car.model %></td>
+          <td><%= car.year %></td>
+          <td><%= car.km %></td>
+          <td><%= price_mask_real(car.daily_rate) %></td>
+          
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

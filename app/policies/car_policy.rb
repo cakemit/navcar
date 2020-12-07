@@ -41,4 +41,7 @@ class CarPolicy < ApplicationPolicy
     true
   end
 
+  def owner?
+    true
+  end
 end
