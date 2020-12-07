@@ -10,8 +10,6 @@ class RentalsController < ApplicationController
   
   # GET car_rental_path '/cars/:car_id/rentals/:id' VIEW
   def show
-    time = @rental.finish_date - @rental.start_date
-    @price = time * @rental.car.daily_rate
     authorize @rental
   end
 
@@ -27,6 +25,8 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
     @rental.car = @car
     @rental.user = current_user
+    days = @rental.finish_date - @rental.start_date
+    @amount = days * @rental.car.daily_rate
     authorize @rental
     if @rental.save
       redirect_to car_rental_path(@car, @rental)
