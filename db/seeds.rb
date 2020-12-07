@@ -22,7 +22,7 @@ owner = User.create!(
   first_name: "OwnerNome",
   last_name: "OwnerSobrenome",
   phone: Faker::PhoneNumber.cell_phone,
-  address: Faker::Address.full_address,
+  address: "Rua Equador, 831, Santo Cristo, Rio de Janeiro, RJ, Brasil",
   email: "owner@teste.com",
   password: '123456',
   password_confirmation: '123456'
@@ -41,7 +41,6 @@ categories = ["Vintage", "Luxury", "Off-road", "Sport"]
       year: Faker::Vehicle.year,
       km: Faker::Vehicle.kilometrage,
       daily_rate: rand(400..2000),
-      city: Faker::Address.full_address,
       category: category
     )
 
@@ -54,7 +53,7 @@ categories = ["Vintage", "Luxury", "Off-road", "Sport"]
                       content_type: 'image/jpg')
     end
 
-    puts "CREATED CAR_ID: #{car.id} - #{car.year} #{car.brand} #{car.model} 
+    puts "CREATED CAR_ID: #{car.id} - #{car.year} #{car.brand} #{car.model}
           FOR OWNER_ID: #{car.user.id} - #{car.user.email} (pw:123456)
           WITH #{car.photos.count} PHOTOS IN #{car.category}"
   end
