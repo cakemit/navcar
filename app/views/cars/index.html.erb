@@ -1,13 +1,22 @@
 
   <%# FAZER TODOS OS CARDS FICAREM DO MESMO TAMANHO MESMO QUANDO O NOME DO CARRO OCUPAR DUAS LINHAS? %>
+  <%# CORRIGIR O TAMANHO DAS FOTOS PARA QUE FIQUEM SEMPRE COM O MESMO HEIGHT? %>
   <%# INSERIR TABS para separar carros POR CATEGORIA? %>
   <%# INSERIR SEARCH por cidade? %>
 
-<div class="container mt-5">
+<div class="container my-5">
+
+  <nav class="nav nav-tabs flex-column flex-sm-row">
+    <a class="nav-link active" href="#">All</a>
+    <a class="nav-link" href="#">Luxury</a>
+    <a class="nav-link" href="#">Vintage</a>
+    <a class="nav-link" href="#">Sport</a>
+    <a class="nav-link" href="#">Off-road</a>
+  </nav>
   <div class="cards">
     <% @cars.each do |car| %>
       <%# ini each card %>
-      <div class="card">
+      <div class="card" style="background-color: #f7f7ef">
         <% if car.photos.attached? %>
         <%# ini card photo carousel %>
           <div id="carPhotosCarousel<%= car.id %>" class="carousel slide" data-ride="carousel" data-wrap="false" data-interval="false">
@@ -46,7 +55,7 @@
           <h5 class="card-subtitle text-muted"> <%= car.category %></h5>
         </div>
         <ul class="list-group list-group-flush">
-          <li class=list-group-item> Daily rate: R$ <%= car.daily_rate  %></li>
+          <li class=list-group-item style="background-color: rgba(128, 15, 15, 0)"> Daily rate: R$ <%= car.daily_rate  %></li>
         </ul>
         <%# end card infos %>
 
