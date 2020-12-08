@@ -1,25 +1,31 @@
-<div class="container-form">
+<div class="container my-5", style="display: grid; width: 480px;">
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
-  <div class="container">
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= simple_form_for(resource, 
+      as: resource_name, url: registration_path(resource_name), 
+      html: { method: :put }) do |f| %>
+
       <%= f.error_notification %>
 
       <div class="form-inputs">
+
+        <div class="d-flex justify-content-between">
+          <%= f.input :first_name,
+                      required: false,
+                      input_html: { autocomplete: "first_name" } %>
+          <%= f.input :last_name,
+                      required: false,
+                      input_html: { autocomplete: "last_name" } %>
+        </div>
+
+        <%= f.input :phone,
+                    required: false,
+                    input_html: { autocomplete: "your best phone number" }%>
         <%= f.input :email, required: true, autofocus: true %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
         <% end %>
 
-        <%= f.input :first_name,
-                    required: false,
-                    input_html: { autocomplete: "first_name" } %>
-        <%= f.input :last_name,
-                    required: false,
-                    input_html: { autocomplete: "last_name" } %>
-        <%= f.input :phone,
-                    required: false,
-                    input_html: { autocomplete: "your best phone number" } %>
         <%= f.input :address,
                     required: false,
                     input_html: { autocomplete: "your address" } %>
@@ -40,13 +46,11 @@
       </div>
 
       <div class="form-actions mb-1">
-        <%= f.button :submit, "Update", class: "btn btn-gradient" %>
+        <%= f.button :submit, "Update", class: "btn btn-gradient", style: "width: 100px;" %>
       </div>
     <% end %>
     <div class="mt-3">
-      <span style="color: gray; font-weight: bold;">Cancel my account</span>
       <p style="color: gray;">Unhappy?<%= link_to " Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
     </div>
     <%= link_to "Back", :back %>
-  </div>
 </div>
