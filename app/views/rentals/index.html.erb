@@ -1,5 +1,5 @@
 <div class="container p-5">
-  <h2>My rentals</h2>
+  <h2 class="mb-3">My rentals</h2>
   <% if @rentals.count.zero? %>
     <p>You don't have any open rentals</p>
     <%= link_to 'Browse cars', cars_path, 
@@ -7,7 +7,7 @@
 
   <% else %>
     <%# ini list of rentals %>
-    <table class="table table-sm table-hover">
+    <table class="table table-hover align-bottom">
       <thead>
         <tr>
           <th scope="col">Rental ID</th>
@@ -22,12 +22,22 @@
       <tbody>
       <% @rentals.each do |rental| %>
         <tr>
-          <th scope="row"><%= rental.id %></th>
-          <td><%= rental.car.year %> <%= rental.car.brand %> <%= rental.car.model %></td>
-          <td><%= date_mask(rental.start_date) %></td>
-          <td><%= date_mask(rental.finish_date) %></td>
-          <td><%= price_mask_real(rental.amount) %></td>
-          <td>
+          <th scope="row" class="align-middle">
+            <%= rental.id %>
+          </th>
+          <td class="align-middle">
+            <%= rental.car.year %> <%= rental.car.brand %> <%= rental.car.model %>
+          </td>
+          <td class="align-middle">
+            <%= date_mask(rental.start_date) %>
+          </td>
+          <td class="align-middle">
+            <%= date_mask(rental.finish_date) %>
+          </td>
+          <td class="align-middle">
+            <%= price_mask_real(rental.amount) %>
+          </td>
+          <td class="align-middle">
             <%= link_to 'View', car_rental_path(car_id: rental.car.id, id: rental.id), 
                                 class: "btn btn-flat btn-sm ", 
                                 style: "width: 80px;" %>
