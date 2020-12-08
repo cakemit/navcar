@@ -11,6 +11,16 @@ class CarsController < ApplicationController
     else
       @cars = policy_scope(Car).order(created_at: :desc)
     end
+    owners = []
+    @cars.each do |car|
+      owners << car.user
+    end
+    @markers = owners.map do |owner|
+      {
+        lat: owner.latitude,
+        lng: owner.longitude
+      }
+    end
   end
 
   # GET new_car_path <=> '/cars/new' VIEW
