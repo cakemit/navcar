@@ -20,7 +20,7 @@
       </thead>
 
       <tbody>
-      <% @rentals.each do |rental| %>
+      <% @rentals.reverse.each do |rental| %>
         <tr>
           <th scope="row" class="align-middle">
             <%= rental.id %>
