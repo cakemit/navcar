@@ -19,6 +19,9 @@
       <% end %>
     </div>
   </div>
+  <% if @myrentals.count.zero? %>
+    <p></p>
+  <% else %>
   <hr>
   <h2>Rentals</h2>
   <table class="table table-sm table-hover text-center">
@@ -43,4 +46,5 @@
     <% end %>
     </tbody>
   </table>
+  <% end %>
 </div>
