@@ -18,10 +18,10 @@ puts "(1) Creating 4 owners with 4 cars each"
 puts " "
 
 addresses = [
-  "R. Jardim Botânico, 414 - Jardim Botânico, Rio de Janeiro - RJ",
-  "R. Manuel Carneiro - Santa Teresa, Rio de Janeiro - RJ",
-  "Avenida Ipiranga, 200 - República - São Paulo - SP",
-  "Rua dos Aflitos, 70 - Liberdade, São Paulo - SP"
+  "Rua Jardim Botânico 414, Rio de Janeiro, Rio de Janeiro, Brasil",
+  "Avenida Presidente Vargas, Rio de Janeiro, Rio de Janeiro, Brasil",
+  "Avenida Ipiranga 200, São Paulo, São Paulo, Brasil",
+  "Rua dos Aflitos 70, São Paulo, São Paulo, Brasil"
 ]
 
 addresses.each_with_index do |address, index|
