@@ -1,4 +1,3 @@
-
 puts " "
 puts "Cleaning user, car and rental databases"
 puts "..."
@@ -15,24 +14,31 @@ puts " "
 Faker::Config.locale = 'pt-BR'
 
 # ------------------------------------------------------------------------------
-puts "(1) Creating an owner with 8 cars"
+puts "(1) Creating 4 owners with 4 cars each"
 puts " "
 
-owner = User.create!(
-  first_name: "Owner",
-  last_name: "Schrubbles",
-  phone: Faker::PhoneNumber.cell_phone,
-  address: "Rua Equador, 831, Santo Cristo, Rio de Janeiro, RJ, Brasil",
-  email: "owner@teste.com",
-  password: '123456',
-  password_confirmation: '123456'
-)
-puts "CREATED USER_ID: #{owner.id} - #{owner.email} (pw:123456) AS #{owner.first_name} ADDRESS #{owner.address}"
-puts " "
+addresses = [
+  "R. Jardim Botânico, 414 - Jardim Botânico, Rio de Janeiro - RJ",
+  "R. Manuel Carneiro - Santa Teresa, Rio de Janeiro - RJ",
+  "Avenida Ipiranga, 200 - República - São Paulo - SP",
+  "Rua dos Aflitos, 70 - Liberdade, São Paulo - SP"
+]
 
-# Create 2 cars with photos in each category
-categories = ["Vintage", "Luxury", "Off-road", "Sport"]
-2.times do
+addresses.each_with_index do |address, index|
+  owner = User.create!(
+    first_name: "Owner #{index}",
+    last_name: "Schrubbles #{index}",
+    phone: Faker::PhoneNumber.cell_phone,
+    address: address,
+    email: "owner#{index}@teste.com",
+    password: '123456',
+    password_confirmation: '123456'
+  )
+  puts "CREATED USER_ID: #{owner.id} - #{owner.email} (pw:123456) AS #{owner.first_name} ADDRESS #{owner.address}"
+  puts " "
+
+  # Create 1 car with photos in each category
+  categories = ["Vintage", "Luxury", "Off-road", "Sport"]
   categories.each do |category|
     car = Car.create!(
       user_id: owner.id,
@@ -45,12 +51,12 @@ categories = ["Vintage", "Luxury", "Off-road", "Sport"]
     )
 
     photo_ini = rand(0..7)
-    for photo in (1..3).to_a
+    (1..3).to_a.each do |photo|
       file_name = "#{car.category.downcase}#{photo_ini + photo}.jpg"
       file_path = "app/assets/images/seed-#{car.category.downcase}/#{file_name}"
       car.photos.attach(io: File.open(Rails.root + file_path),
-                      filename: file_name,
-                      content_type: 'image/jpg')
+                        filename: file_name,
+                        content_type: 'image/jpg')
     end
 
     puts "CREATED CAR_ID: #{car.id} - #{car.year} #{car.brand} #{car.model}

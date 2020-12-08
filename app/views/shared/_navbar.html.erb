@@ -28,7 +28,7 @@
           <% if current_user.photo.attached? %>
             <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, class:"avatar dropdown-toggle", id:"navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
             <% else %>
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "madruga.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My cars", owner_car_path(@user), class: "dropdown-item" %>
@@ -39,7 +39,10 @@
       <%# end signed-in %>
       <% else %>
         <li class="nav-item font-weight-bold">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Sign Up", new_user_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item font-weight-bold">
+          <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-gradient mx-2" %>
         </li>
       <% end %>
     </ul>
