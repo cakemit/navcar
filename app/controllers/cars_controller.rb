@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show]
+  skip_before_action :authenticate_user!, only: %i[index show luxury vintage sport off_road]
 
   before_action :set_car, only: %i[show edit update destroy]
   before_action :set_user
