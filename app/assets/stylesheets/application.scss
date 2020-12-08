@@ -17,3 +17,16 @@ body {
   // background-color: rgba(194, 149, 46, .05);
   background-color: white;
 }
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+margin: 0 0 100px; 
+font-family: sans-serif;
+}
+.content { 
+padding: 15px; 
+box-sizing: border-box;
+text-align: center;
+}
