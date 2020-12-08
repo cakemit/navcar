@@ -1,8 +1,10 @@
-<%= form_tag cars_path, method: :get do %>
+<%= form_tag cars_path, 
+  method: :get,
+  class: "d-flex flex-row align-items-center",
+  style: "width: 500px;" do %>
   <%= text_field_tag :user_address,
     params[:query],
     class: "form-control",
-    placeholder: "Find a car by location"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+    placeholder: "Find a car by location"%>
+  <%= submit_tag "Search", class: "btn btn-secondary ml-3" %>
 <% end %>
