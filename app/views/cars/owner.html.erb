@@ -22,7 +22,7 @@
       </thead>
 
       <tbody>
-      <% @mycars.each do |car| %>
+      <% @mycars.reverse.each do |car| %>
         <tr>
           <td><%= car.brand %></td>
           <td><%= car.model %></td>
