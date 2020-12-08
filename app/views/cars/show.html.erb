@@ -19,4 +19,28 @@
       <% end %>
     </div>
   </div>
+  <hr>
+  <h2>Rentals</h2>
+  <table class="table table-sm table-hover text-center">
+    <thead>
+      <tr>
+      <th scope="col">User</th>
+        <th scope="col">Start date</th>
+        <th scope="col">Finish date</th>
+        <th scope="col">Amount</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% @myrentals.reverse.each do |rentail| %>
+      <tr>
+        <td><%= rentail.user.first_name %></td>
+        <td><%= rentail.start_date %> </td>
+        <td><%= rentail.finish_date %> </td>
+        <td><%= price_mask_real(rentail.amount) %></td>
+        <td></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
