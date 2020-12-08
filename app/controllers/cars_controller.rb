@@ -6,8 +6,9 @@ class CarsController < ApplicationController
 
   # GET cars_path <=> '/cars' VIEW
   def index
-    if params[:query].present?
-      @cars = policy_scope(Car).search_by_address(params[:query]).order(created_at: :desc)
+    # raise
+    if params[:user_address].present?
+      @cars = policy_scope(Car).search_by_address(params[:user_address]).order(created_at: :desc)
     else
       @cars = policy_scope(Car).order(created_at: :desc)
     end
@@ -72,26 +73,82 @@ class CarsController < ApplicationController
 
   # GET luxury_cars_path <=> '/cars/luxury'
   def luxury
-    @cars = Car.where(category: "Luxury")
+    if params[:user_address].present?
+      @cars = policy_scope(Car).search_by_address(params[:user_address]).order(created_at: :desc).where(category: "Luxury")
+    else
+      @cars = policy_scope(Car).order(created_at: :desc).where(category: "Luxury")
+    end
     authorize @cars
+    owners = []
+    @cars.each do |car|
+      owners << car.user
+    end
+    @markers = owners.map do |owner|
+      {
+        lat: owner.latitude,
+        lng: owner.longitude
+      }
+    end
   end
 
   # GET vintage_cars_path <=> /cars/vintage
   def vintage
-    @cars = Car.where(category: "Vintage")
+    if params[:user_address].present?
+      @cars = policy_scope(Car).search_by_address(params[:user_address]).order(created_at: :desc).where(category: "Luxury")
+    else
+      @cars = policy_scope(Car).order(created_at: :desc).where(category: "Vintage")
+    end
     authorize @cars
+    owners = []
+    @cars.each do |car|
+      owners << car.user
+    end
+    @markers = owners.map do |owner|
+      {
+        lat: owner.latitude,
+        lng: owner.longitude
+      }
+    end
   end
 
   # GET sport_cars_path <=> /cars/sport
   def sport
-    @cars = Car.where(category: "Sport")
+    if params[:user_address].present?
+      @cars = policy_scope(Car).search_by_address(params[:user_address]).order(created_at: :desc).where(category: "Luxury")
+    else
+      @cars = policy_scope(Car).order(created_at: :desc).where(category: "Sport")
+    end
     authorize @cars
+    owners = []
+    @cars.each do |car|
+      owners << car.user
+    end
+    @markers = owners.map do |owner|
+      {
+        lat: owner.latitude,
+        lng: owner.longitude
+      }
+    end
   end
 
   # GET off_road_cars_path <=> /cars/off_road
   def off_road
-    @cars = Car.where(category: "Off-road")
+    if params[:user_address].present?
+      @cars = policy_scope(Car).search_by_address(params[:user_address]).order(created_at: :desc).where(category: "Luxury")
+    else
+      @cars = policy_scope(Car).order(created_at: :desc).where(category: "Off-road")
+    end
     authorize @cars
+    owners = []
+    @cars.each do |car|
+      owners << car.user
+    end
+    @markers = owners.map do |owner|
+      {
+        lat: owner.latitude,
+        lng: owner.longitude
+      }
+    end
   end
 
   # GET my_cars_cars_path => /cars/:id/owner
