@@ -17,13 +17,11 @@
       <%= render 'shared/navbar' %>
     </div>
     <%# content here %>
-    <div class="content">
-    	<section role="main"> 
-        <div>
-          <%= render 'shared/flashes' %>
-        </div>
-        <%= yield %>
+    <section role="main"> 
+      <div>
+        <%= render 'shared/flashes' %>
       </div>
+      <%= yield %>
     </div>
     <%# footer here %>
     <div>
