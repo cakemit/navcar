@@ -60,7 +60,7 @@ class CarsController < ApplicationController
 
   # GET car_path '/cars/:id' VIEW
   def show
-    @myrentals = Rental.where(car_id: @car)
+    @myrentals = Rental.where(car_id: @car, user_id: current_user)
     authorize @car
   end
 
