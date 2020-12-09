@@ -19,7 +19,8 @@ class CarsController < ApplicationController
     @markers = owners.map do |owner|
       {
         lat: owner.latitude,
-        lng: owner.longitude
+        lng: owner.longitude,
+        infoWindow: render_to_string(partial: "shared/info_window", locals: { car: owner.cars.sample })
       }
     end
   end
