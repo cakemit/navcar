@@ -20,6 +20,7 @@ class CarsController < ApplicationController
       {
         lat: owner.latitude,
         lng: owner.longitude
+        # infoWindow: render_to_string(partial: "info_window", locals: { owner: owner })
       }
     end
   end
